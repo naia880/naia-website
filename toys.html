@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toys &amp; Experiences — M/Y NAIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+.toys-hero-img { width:100%; max-height:65vh; object-fit:cover; display:block; margin-top:72px; }
+
+.toys-section {
+  background:var(--light-grey);
+  padding:clamp(60px,8vw,110px) clamp(20px,5vw,80px);
+}
+.toys-inner { max-width:1200px; margin:0 auto; }
+#accordion { display:grid; grid-template-columns:1fr 1fr; gap:0 60px; }
+@media(max-width:768px){ #accordion { grid-template-columns:1fr; } }
+
+.toys-heading {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(38px,6vw,72px); font-weight:300; color:var(--dark);
+  margin-top:16px; text-align:center;
+}
+.toys-intro {
+  font-family:'Montserrat',sans-serif; font-size:clamp(13px,1.3vw,15px);
+  font-weight:300; color:var(--mid-grey); line-height:1.9;
+  text-align:center; margin-top:28px;
+}
+#accordion { margin-top:100px; }
+
+/* Accordion */
+.accordion-item { border-bottom:1px solid var(--border); }
+.accordion-trigger {
+  display:flex; align-items:center; justify-content:space-between;
+  width:100%; padding:18px 0; background:none; border:none;
+  cursor:pointer; text-align:left; min-height:56px;
+}
+.accordion-name { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:var(--burgundy); }
+.accordion-icon {
+  font-size:22px; color:var(--burgundy); font-weight:300;
+  font-family:'Montserrat',sans-serif; flex-shrink:0;
+  width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+}
+.accordion-body { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+.accordion-item.open .accordion-body { max-height:500px; }
+.accordion-desc {
+  font-family:'Montserrat',sans-serif; font-size:13px; font-weight:300;
+  color:var(--mid-grey); line-height:1.85; padding:4px 0 20px;
+}
+</style>
+</head>
+<body>
+
+<header id="site-header" data-solid="true">
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="logo.webp" alt="M/Y NAIA"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="awards.html">Awards</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="toys.html" class="active">Toys &amp; Experiences</a></li>
+      <li><a href="crew.html">Crew</a></li>
+      <li><a href="chaser.html">Chaser</a></li>
+      <li><a href="enquire.html" class="nav-enquire">Enquire</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" id="mobile-close">&times;</button>
+  <ul class="mobile-menu-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="awards.html">Awards</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="toys.html">Toys &amp; Experiences</a></li>
+    <li><a href="crew.html">Crew</a></li>
+    <li><a href="chaser.html">Chaser</a></li>
+    <li><a href="enquire.html">Enquire</a></li>
+  </ul>
+</div>
+
+<img src="toys.jpg" alt="Toys and Experiences" class="toys-hero-img" loading="lazy" onerror="this.style.display='none'">
+
+<main>
+<section class="toys-section">
+  <div class="toys-inner">
+    <span class="section-eyebrow reveal" style="--i:0;display:block;text-align:center">The Collection</span>
+    <span class="eyebrow-line reveal" style="--i:1;margin:12px auto 0"></span>
+    <h1 class="toys-heading reveal" style="--i:2">Toys &amp; Experiences</h1>
+    <p class="toys-intro reveal" style="--i:3">From quiet sunrise drifts to adrenaline-soaked afternoons, NAIA carries an exceptional range of toys curated for every guest.</p>
+    <hr class="section-rule reveal" style="--i:4">
+
+    <div id="accordion">
+
+      <div class="accordion-item reveal" style="--i:0">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Williams Tender 445</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">A high-performance, elegantly refitted diesel jet tender that combines speed and luxury, perfect for quick transfers and exploring shallow waters.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:1">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Seadoo Spark Trixx Jet Ski</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Experience adrenaline-pumping speed on the water with the Seadoo Trixx jet ski, offering unmatched agility and fun for water sports enthusiasts.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:2">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Flite eFoil Carbon Classic 2024</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Glide above the water with this cutting-edge eFoil, offering a seamless blend of technology and design for an exhilarating ride.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:3">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Seabob F5S 2024</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Dive into the water like never before with this high-thrust underwater scooter, perfect for exploring marine life with ease and agility.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:4">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Jobe Infinity Seascooter 2024</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Stay tuned for the latest addition to our scooter collection, promising top-tier performance and style.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:5">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Wakeboards Liquid Force 2024</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Catch waves and perform tricks with our new selection of top-brand wakeboards. Featuring two boards — the Angel for women and the Trip for men — each offers a tailored ride for every style and skill level.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:0">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Wakesurf Liquid Force Rocket 2024</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Surf the boat's wake with these cutting-edge boards, offering exceptional control and agility for a thrilling surf experience.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:1">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Waterskis · 2 Sets</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Enjoy the water with our versatile sets of waterskis, designed for both men and women, catering to beginners and experienced skiers of all ages.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:2">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Stand-up Paddles · 2</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Explore the tranquility of the sea with our stand-up paddle boards (Brabus, Jobe, Fanatic), combining stability and performance for paddlers of all levels.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:3">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Inflatable Toys</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Add fun to your water activities with our range of inflatable toys (Brabus, Jobe), designed for maximum enjoyment.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:4">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Wing Foil Takuma</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Experience the latest in foil technology with this innovative wing e-Foil, offering an unparalleled sensation of flying over water.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:5">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Mares Full Snorkelling Sets</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Discover underwater wonders with our complete snorkelling sets, featuring top-quality gear for crystal-clear vision and comfort.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:0">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Mares Scuba Diving Equipment</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Explore the depths of the sea with the finest scuba diving equipment, along with the Coltri diving compressor, ensuring safety and performance for divers of all levels.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:1">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Kitesurfing Duotone</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Surf the waves with exceptional kiteboards from Duotone. A full range of Duotone kites (6m, 9m, 11m, 14m) is available, allowing you to enjoy a session in a variety of wind conditions.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:2">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">SeaRaft Platform</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Expand your on-water real estate with this stable and versatile 4 × 2m sea raft, perfect for sunbathing, yoga, or as a launch pad for water sports.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:3">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">Deep Sea Fishing Equipment</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Equip yourself with the latest fishing gear, designed for anglers seeking the ultimate catch with precision and ease.</p></div>
+      </div>
+
+      <div class="accordion-item reveal" style="--i:4">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-name">DJI Mavic Pro 2 Drone &amp; GoPro Action Cameras</span><span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><p class="accordion-desc">Our crew is certified to fly drones and, along with a top-notch selection of action cameras, will capture all your magic moments onboard to create a memorable video delivered to you at the end of your cruise.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="index.html"><img src="logo.webp" alt="M/Y NAIA" class="footer-logo"></a>
+      <p class="footer-tagline">Multi award-winning Sanlorenzo 40 Alloy.<br>Mediterranean charter at its finest.</p>
+      <p class="footer-copy">Copyright &copy; 2024</p>
+    </div>
+    <div class="footer-right">
+      <span class="footer-contact-label">Contact</span>
+      <a href="mailto:info@naiayacht.com" class="footer-email">info@naiayacht.com</a>
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/naiayacht/" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://iyc.com/charter/naia-39m/" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="IYC Charter Listing">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+(function(){
+  var items = document.querySelectorAll('.accordion-item');
+  items.forEach(function(item){
+    item.querySelector('.accordion-trigger').addEventListener('click', function(){
+      var wasOpen = item.classList.contains('open');
+      items.forEach(function(i){
+        i.classList.remove('open');
+        i.querySelector('.accordion-icon').textContent = '+';
+        i.querySelector('.accordion-trigger').setAttribute('aria-expanded','false');
+      });
+      if(!wasOpen){
+        item.classList.add('open');
+        item.querySelector('.accordion-icon').textContent = '−';
+        item.querySelector('.accordion-trigger').setAttribute('aria-expanded','true');
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

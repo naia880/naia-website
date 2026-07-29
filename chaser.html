@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chaser — M/Y NAIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+/* Hero with parallax */
+.chaser-hero {
+  position:relative; min-height:100vh;
+  background:url('chaser-1.jpg') center center / cover no-repeat;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; padding:clamp(80px,10vw,140px) clamp(20px,5vw,60px);
+}
+.chaser-hero::before {
+  content:''; position:absolute; inset:0;
+  background:rgba(0,0,0,.5); pointer-events:none;
+}
+.chaser-hero-content { position:relative; z-index:1; max-width:800px; }
+
+.chaser-eyebrow { font-family:'Montserrat',sans-serif; font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:.4em; color:var(--burgundy); display:block; }
+.chaser-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(34px,6vw,80px); font-weight:300; color:var(--white);
+  line-height:1.05; margin-top:14px;
+}
+.chaser-subtitle {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:clamp(16px,2vw,22px); color:rgba(255,255,255,.8); margin-top:10px;
+}
+.chaser-tagline {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:clamp(20px,2.5vw,28px); color:var(--white); margin-top:32px; line-height:1.4;
+}
+.chaser-body {
+  font-family:'Montserrat',sans-serif; font-size:clamp(13px,1.3vw,15px);
+  font-weight:300; color:rgba(255,255,255,.82); line-height:1.9;
+  margin-top:22px; max-width:620px; margin-left:auto; margin-right:auto;
+}
+.chaser-specs-row {
+  font-family:'Montserrat',sans-serif; font-size:12px; font-weight:500;
+  color:var(--white); text-transform:uppercase; letter-spacing:.15em;
+  margin-top:36px;
+}
+
+/* Specs grid section */
+.chaser-specs-section {
+  background:var(--white);
+  padding:clamp(70px,9vw,110px) clamp(20px,5vw,80px);
+}
+.chaser-specs-inner { max-width:1000px; margin:0 auto; }
+.chaser-specs-heading {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,4vw,48px); font-weight:300; color:var(--dark); margin-top:16px;
+}
+.chaser-specs-body {
+  font-family:'Montserrat',sans-serif; font-size:clamp(13px,1.3vw,15px);
+  font-weight:300; color:var(--mid-grey); line-height:1.9; margin-top:18px; max-width:640px;
+  text-align:justify;
+}
+
+/* Redesigned specs bar */
+.specs-grid6 {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-top:60px; padding:48px 0;
+  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+}
+.sg-cell { text-align:center; flex:1; position:relative; }
+.sg-cell:not(:last-child)::after {
+  content:''; position:absolute; right:0; top:50%; transform:translateY(-50%);
+  height:40px; width:1px; background:var(--border);
+}
+.sg-label { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:500; text-transform:uppercase; letter-spacing:.22em; color:var(--mid-grey); display:block; margin-bottom:10px; }
+.sg-value { font-family:'Cormorant Garamond',serif; font-size:clamp(24px,3vw,40px); font-weight:300; color:var(--burgundy); display:block; }
+
+.chaser-img2 { width:100%; max-height:500px; object-fit:cover; display:block; margin-top:56px; }
+
+@media(max-width:768px) {
+  .specs-grid6 { grid-template-columns:repeat(2,1fr); }
+  .sg-cell:nth-child(3n) { border-right:1px solid var(--border); }
+  .sg-cell:nth-child(2n) { border-right:none; }
+}
+</style>
+</head>
+<body>
+
+<header id="site-header" style="position:fixed;top:0;left:0;width:100%;z-index:900;background:transparent;border-bottom:1px solid transparent;transition:background .4s ease,border-color .4s ease;">
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="logo.webp" alt="M/Y NAIA"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="awards.html">Awards</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="toys.html">Toys &amp; Experiences</a></li>
+      <li><a href="crew.html">Crew</a></li>
+      <li><a href="chaser.html" class="active">Chaser</a></li>
+      <li><a href="enquire.html" class="nav-enquire">Enquire</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" id="mobile-close">&times;</button>
+  <ul class="mobile-menu-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="awards.html">Awards</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="toys.html">Toys &amp; Experiences</a></li>
+    <li><a href="crew.html">Crew</a></li>
+    <li><a href="chaser.html">Chaser</a></li>
+    <li><a href="enquire.html">Enquire</a></li>
+  </ul>
+</div>
+
+<main>
+<!-- CHASER HERO -->
+<section class="chaser-hero" id="chaser-hero">
+  <div class="chaser-hero-content">
+    <span class="chaser-eyebrow reveal" style="--i:0">The Chaser</span>
+    <h1 class="chaser-title reveal" style="--i:1">Axopar 37xc Cross Cabin Chaser.</h1>
+  </div>
+</section>
+
+<!-- TEXT LEFT / SPECS RIGHT -->
+<section style="background:var(--white); padding:clamp(70px,9vw,120px) clamp(40px,5vw,100px);">
+  <div style="max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
+    <div>
+      <span class="section-eyebrow reveal" style="--i:0">The Chaser</span>
+      <span class="eyebrow-line reveal" style="--i:1"></span>
+      <h2 class="chaser-specs-heading reveal" style="--i:2">Your Gateway to Hidden Horizons.</h2>
+      <p class="chaser-specs-body reveal" style="--i:3; margin-top:24px;">The Axopar 37 XC Cross Cabin enhances your charter experience with NAIA by offering unparalleled exploration capabilities. The addition of this high-speed chase boat enables guests to discover secluded bays and hidden gems, offering a smooth, comfortable ride with stabilisers at anchor and underway.</p>
+      <p class="chaser-specs-body reveal" style="--i:4; margin-top:18px;">Its design integrates open and enclosed boating, featuring a fully enclosed, weatherproof cabin with a distinctive look that challenges traditional cabin boats. Key features such as the innovative Gullwing Door concept, a spacious foredeck, and a versatile aft deck, complemented by significant gains in fuel economy and performance, ensure a comfortable and efficient journey.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); border-top:1px solid var(--border); align-content:start; max-width:480px; margin-left:auto;">
+      <div style="padding:28px 24px 28px 0; border-bottom:1px solid var(--border);"><span class="sg-label">Length</span><span class="sg-value" style="font-size:clamp(20px,2vw,28px);">11.50m</span></div>
+      <div style="padding:28px 24px 28px 0; border-bottom:1px solid var(--border);"><span class="sg-label">Year</span><span class="sg-value" style="font-size:clamp(20px,2vw,28px);">2024</span></div>
+      <div style="padding:28px 24px 28px 0; border-bottom:1px solid var(--border);"><span class="sg-label">Top Speed</span><span class="sg-value" style="font-size:clamp(20px,2vw,28px);">48kn</span></div>
+      <div style="padding:28px 24px 28px 0; border-bottom:1px solid var(--border);"><span class="sg-label">Beam</span><span class="sg-value" style="font-size:clamp(20px,2vw,28px);">3.35m</span></div>
+      <div style="padding:28px 40px 28px 0; border-bottom:1px solid var(--border);"><span class="sg-label">Engines</span><span class="sg-value" style="font-size:clamp(20px,2vw,28px);">Twin Mercury V8</span></div>
+      <div style="padding:28px 24px 28px 20px; border-bottom:1px solid var(--border);"><span class="sg-label">Guests</span><span class="sg-value" style="font-size:clamp(20px,2vw,28px);">10</span></div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="index.html"><img src="logo.webp" alt="M/Y NAIA" class="footer-logo"></a>
+      <p class="footer-tagline">Multi award-winning Sanlorenzo 40 Alloy.<br>Mediterranean charter at its finest.</p>
+      <p class="footer-copy">Copyright &copy; 2024</p>
+    </div>
+    <div class="footer-right">
+      <span class="footer-contact-label">Contact</span>
+      <a href="mailto:info@naiayacht.com" class="footer-email">info@naiayacht.com</a>
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/naiayacht/" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://iyc.com/charter/naia-39m/" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="IYC Charter Listing">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+var header = document.getElementById('site-header');
+var chaserHero = document.getElementById('chaser-hero');
+window.addEventListener('scroll', function(){
+  if(window.scrollY > 80){ header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); }
+  if(chaserHero){
+    var offset = chaserHero.getBoundingClientRect().top + window.scrollY;
+    chaserHero.style.backgroundPositionY = ((window.scrollY - offset) * 0.3) + 'px';
+  }
+}, { passive:true });
+</script>
+</body>
+</html>

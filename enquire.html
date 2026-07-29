@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enquire — M/Y NAIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+/* ENQUIRE PAGE */
+.enquire-section {
+  background: var(--light-grey);
+  padding: clamp(80px,10vw,130px) clamp(24px,5vw,80px);
+  min-height: calc(100vh - 72px);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.enquire-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+.enquire-heading {
+  font-family:'Cormorant Garamond',serif;
+  font-size: clamp(36px,5vw,62px); font-weight:300; color:var(--dark);
+  margin-top: 16px; line-height:1.1;
+}
+.enquire-subtext {
+  font-family:'Montserrat',sans-serif; font-size:13px; font-weight:300;
+  color:var(--mid-grey); line-height:1.85; margin-top:18px;
+}
+.enquire-form {
+  display:grid; grid-template-columns:1fr 1fr; gap:28px 40px; margin-top:80px;
+  text-align:left;
+}
+.form-field { display:flex; flex-direction:column; }
+.form-field.full { grid-column:1 / -1; }
+.form-field.centre { grid-column:1 / -1; display:flex; justify-content:center; margin-top:12px; }
+.form-field label {
+  font-family:'Montserrat',sans-serif; font-size:9px; font-weight:500;
+  text-transform:uppercase; letter-spacing:.15em; color:var(--burgundy); margin-bottom:8px;
+}
+.form-field input,
+.form-field textarea {
+  background:transparent; border:none;
+  border-bottom:1px solid var(--border); outline:none;
+  font-family:'Montserrat',sans-serif; font-size:14px; font-weight:300;
+  color:var(--dark); padding:12px 0; width:100%;
+  transition:border-color .3s ease;
+}
+.form-field input:focus,
+.form-field textarea:focus { border-bottom-color:var(--burgundy); }
+.form-field textarea { resize:none; line-height:1.8; }
+.form-field input[type="date"]::-webkit-calendar-picker-indicator { opacity:.4; cursor:pointer; }
+.submit-btn {
+  background:var(--burgundy); color:var(--white);
+  font-family:'Montserrat',sans-serif; font-size:11px; font-weight:500;
+  text-transform:uppercase; letter-spacing:.2em; padding:16px 60px;
+  border:none; cursor:pointer; transition:opacity .3s ease;
+}
+.submit-btn:hover { opacity:0.85; }
+.form-success { display:none; padding:40px 0; }
+.form-success p { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:28px; color:var(--burgundy); }
+@media(max-width:640px) {
+  .enquire-form { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<header id="site-header" data-solid="true">
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="logo.webp" alt="M/Y NAIA"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="awards.html">Awards</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="toys.html">Toys &amp; Experiences</a></li>
+      <li><a href="crew.html">Crew</a></li>
+      <li><a href="chaser.html">Chaser</a></li>
+      <li><a href="enquire.html" class="nav-enquire active">Enquire</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" id="mobile-close">&times;</button>
+  <ul class="mobile-menu-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="awards.html">Awards</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="toys.html">Toys &amp; Experiences</a></li>
+    <li><a href="crew.html">Crew</a></li>
+    <li><a href="chaser.html">Chaser</a></li>
+    <li><a href="enquire.html">Enquire</a></li>
+  </ul>
+</div>
+
+<main>
+<section class="enquire-section" style="margin-top:72px;">
+  <div class="enquire-inner">
+
+    <span class="section-eyebrow reveal" style="--i:0;display:block;text-align:center">Enquire</span>
+    <span class="eyebrow-line reveal" style="--i:1;margin:12px auto 0"></span>
+    <h1 class="enquire-heading reveal" style="--i:2">Begin Your Journey.</h1>
+    <p class="enquire-subtext reveal" style="--i:3">Contact us to check availability and receive a personalised charter proposal.</p>
+
+    <form class="enquire-form reveal" id="enquire-form" style="--i:4" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-field">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" name="first_name" autocomplete="given-name">
+      </div>
+      <div class="form-field">
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last_name" autocomplete="family-name">
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email">
+      </div>
+      <div class="form-field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel">
+      </div>
+      <div class="form-field">
+        <label for="start-date">Charter Start Date</label>
+        <input type="date" id="start-date" name="start_date">
+      </div>
+      <div class="form-field">
+        <label for="end-date">Charter End Date</label>
+        <input type="date" id="end-date" name="end_date">
+      </div>
+      <div class="form-field full">
+        <label for="guests">Number of Guests</label>
+        <input type="number" id="guests" name="guests" min="1" max="10">
+      </div>
+      <div class="form-field full">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+      <div class="form-field centre">
+        <button type="submit" class="submit-btn">Send Enquiry</button>
+      </div>
+    </form>
+
+    <div class="form-success" id="form-success">
+      <p>Thank you. We will be in touch shortly.</p>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="index.html"><img src="logo.webp" alt="M/Y NAIA" class="footer-logo"></a>
+      <p class="footer-tagline">Multi award-winning Sanlorenzo 40 Alloy.<br>Mediterranean charter at its finest.</p>
+      <p class="footer-copy">Copyright &copy; 2024</p>
+    </div>
+    <div class="footer-right">
+      <span class="footer-contact-label">Contact</span>
+      <a href="mailto:info@naiayacht.com" class="footer-email">info@naiayacht.com</a>
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/naiayacht/" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://iyc.com/charter/naia-39m/" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="IYC Charter Listing">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+document.getElementById('enquire-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  this.style.display = 'none';
+  var s = document.getElementById('form-success');
+  s.style.display = 'block';
+  s.style.opacity = '0';
+  requestAnimationFrame(function(){
+    s.style.transition = 'opacity .6s ease';
+    s.style.opacity = '1';
+  });
+});
+</script>
+</body>
+</html>

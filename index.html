@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M/Y NAIA — Mediterranean Luxury Charter</title>
+<meta name="description" content="M/Y NAIA — Award-winning Sanlorenzo 40 Alloy. Mediterranean luxury yacht charter. 10 guests, 5 cabins, 2024 refit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+/* ---- HERO ---- */
+#home-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  background: url('home-hero-final.jpg') center 60% / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#home-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.58) 100%);
+  pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 2; padding: 0 clamp(20px,5vw,60px); width: 100%; }
+
+@keyframes hFadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.hero-eyebrow {
+  font-family:'Montserrat',sans-serif; font-size:10px; font-weight:500;
+  color:var(--white); text-transform:uppercase; letter-spacing:0.4em;
+  opacity:0; animation: hFadeUp .8s ease forwards .2s;
+}
+.hero-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(72px,13vw,150px); font-weight:300; color:var(--white);
+  line-height:1; margin-top:14px;
+  opacity:0; animation: hFadeUp .8s ease forwards .4s;
+}
+.hero-subtitle {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:clamp(18px,2.5vw,26px); font-weight:300; color:var(--white);
+  margin-top:10px;
+  opacity:0; animation: hFadeUp .8s ease forwards .6s;
+}
+
+.hero-cta {
+  display:inline-block; margin-top:44px;
+  border:1.5px solid var(--white); color:var(--white); background:transparent;
+  font-family:'Montserrat',sans-serif; font-size:11px; font-weight:500;
+  text-transform:uppercase; letter-spacing:0.2em; padding:14px 40px;
+  cursor:pointer; transition:background .3s ease,color .3s ease;
+  opacity:0; animation: hFadeUp .8s ease forwards .8s;
+}
+.hero-cta:hover { background:var(--white); color:var(--dark); }
+
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+.scroll-chevron {
+  position:absolute; bottom:30px; left:50%; transform:translateX(-50%);
+  z-index:2; cursor:pointer;
+  opacity:0; animation: hFadeUp .8s ease forwards 1.0s, bounce 2s ease-in-out infinite 2.2s;
+}
+.scroll-chevron svg { width:28px; height:28px; fill:none; stroke:var(--white); stroke-width:1.5; }
+
+/* ---- YACHT TEXT BLOCK ---- */
+.yacht-text-block {
+  background: var(--light-grey);
+  padding: clamp(80px,10vw,130px) clamp(20px,5vw,80px);
+  text-align: center;
+}
+.yacht-text-inner { max-width: 760px; margin: 0 auto; }
+.yacht-text-heading {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,4.5vw,56px); font-weight:300; color:var(--dark);
+  line-height:1.15; margin-top:18px;
+}
+.yacht-text-body {
+  font-family:'Montserrat',sans-serif; font-size:clamp(13px,1.3vw,15px);
+  font-weight:300; color:var(--mid-grey); line-height:1.9; margin-top:22px;
+}
+.intro-link {
+  display:inline-block; margin-top:32px;
+  font-family:'Montserrat',sans-serif; font-size:11px; font-weight:500;
+  text-transform:uppercase; letter-spacing:0.2em; color:var(--burgundy);
+  border-bottom:1px solid var(--burgundy); padding-bottom:3px;
+  transition:color .3s ease;
+}
+.intro-link:hover { color:var(--deep-burgundy); }
+
+/* ---- SPECS BAR ---- */
+.specs-numbers {
+  background: var(--white);
+  padding: clamp(90px,12vw,140px) clamp(40px,6vw,100px);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.specs-numbers-inner {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.sn-item {
+  text-align: center;
+  flex: 1;
+  position: relative;
+  padding: 0 12px;
+}
+.sn-item + .sn-item::before {
+  content: '';
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 1px; height: 36px;
+  background: var(--border);
+}
+.sn-number {
+  font-family:'Cormorant Garamond',serif;
+  font-size: clamp(36px,4.5vw,64px); font-weight:300; color:var(--burgundy);
+  line-height:1; display:block; white-space:nowrap;
+}
+.sn-label {
+  font-family:'Montserrat',sans-serif; font-size:9px; font-weight:500;
+  text-transform:uppercase; letter-spacing:0.22em; color:var(--mid-grey);
+  margin-top:10px; display:block;
+}
+
+/* ---- GALLERY PREVIEW ---- */
+.gallery-preview {
+  background: var(--light-grey);
+  padding: clamp(70px,9vw,110px) 0 0;
+}
+.gp-header {
+  text-align: center;
+  padding: 0 clamp(20px,5vw,80px) clamp(40px,5vw,60px);
+}
+.gp-heading {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--dark);
+  margin-top:16px; line-height:1.1;
+}
+/* Horizontal scroll strip */
+.gp-strip-wrap {
+  overflow: hidden;
+  cursor: none;
+  position: relative;
+}
+.gp-strip-wrap:hover { cursor: none; }
+.gp-strip {
+  display: flex;
+  gap: 6px;
+  transition: transform 0.08s linear;
+  will-change: transform;
+  padding: 0 6px;
+}
+.gp-item {
+  flex: 0 0 auto;
+  width: clamp(220px, 22vw, 320px);
+  overflow: hidden;
+}
+.gp-item img {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;
+  transition: transform .6s ease;
+}
+.gp-item:hover img { transform: scale(1.03); }
+
+/* Custom cursor */
+.gp-cursor { display: none; }
+
+.gp-footer {
+  text-align: center;
+  padding: clamp(36px,4vw,52px) clamp(20px,5vw,80px) clamp(60px,8vw,100px);
+}
+.gp-btn {
+  display:inline-block;
+  font-family:'Montserrat',sans-serif; font-size:11px; font-weight:500;
+  text-transform:uppercase; letter-spacing:0.2em; color:var(--burgundy);
+  border-bottom:1px solid var(--burgundy); padding-bottom:3px;
+  transition:opacity .3s ease;
+}
+.gp-btn:hover { opacity:.6; }
+
+@media(max-width:600px) {
+  .gp-item { width: 72vw; }
+}
+
+/* RESPONSIVE */
+@media (max-width:700px) {
+  .specs-numbers-inner { flex-wrap:wrap; justify-content:center; }
+  .sn-item { flex: 0 0 33%; padding: 20px 8px; }
+  .sn-item + .sn-item::before { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="site-header">
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="logo.webp" alt="M/Y NAIA"></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="awards.html">Awards</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="toys.html">Toys &amp; Experiences</a></li>
+      <li><a href="crew.html">Crew</a></li>
+      <li><a href="chaser.html">Chaser</a></li>
+      <li><a href="enquire.html" class="nav-enquire">Enquire</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" id="mobile-close">&times;</button>
+  <ul class="mobile-menu-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="awards.html">Awards</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="toys.html">Toys &amp; Experiences</a></li>
+    <li><a href="crew.html">Crew</a></li>
+    <li><a href="chaser.html">Chaser</a></li>
+    <li><a href="enquire.html">Enquire</a></li>
+  </ul>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section id="home-hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Mediterranean Luxury Charter</p>
+    <h1 class="hero-title">M/Y NAIA</h1>
+    <p class="hero-subtitle">A Sanlorenzo Masterpiece, Reborn in 2024.</p>
+    <a href="enquire.html" class="hero-cta">Enquire Now</a>
+  </div>
+  <div class="scroll-chevron" id="scroll-chevron">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </div>
+</section>
+
+<!-- YACHT TEXT BLOCK -->
+<section class="yacht-text-block">
+  <div class="yacht-text-inner">
+    <span class="section-eyebrow reveal" style="--i:0;display:block;text-align:center">The Yacht</span>
+    <span class="eyebrow-line reveal" style="--i:1;margin:12px auto 0"></span>
+    <h2 class="yacht-text-heading reveal" style="--i:2">A Sanlorenzo Masterpiece, reborn in 2024.</h2>
+    <p class="yacht-text-body reveal" style="--i:3">An award-winning Sanlorenzo 40 Alloy, NAIA blends timeless Italian design with a full 2024 refit by Garibaldi Architects under the direction of Sergio Buttiglieri. Designed by Francesco Paszkowski, she offers a refined Mediterranean experience with eco-conscious innovation, expansive terraces, and exceptional onboard living.</p>
+    <a href="about.html" class="intro-link reveal" style="--i:4">Discover More</a>
+  </div>
+</section>
+
+<!-- SPECS NUMBERS -->
+<section class="specs-numbers">
+  <div class="specs-numbers-inner">
+    <div class="sn-item reveal" style="--i:0"><span class="sn-number">38.5m</span><span class="sn-label">Length</span></div>
+    <div class="sn-item reveal" style="--i:1"><span class="sn-number">10</span><span class="sn-label">Guests</span></div>
+    <div class="sn-item reveal" style="--i:2"><span class="sn-number">5</span><span class="sn-label">Cabins</span></div>
+    <div class="sn-item reveal" style="--i:3"><span class="sn-number">8</span><span class="sn-label">Crew</span></div>
+    <div class="sn-item reveal" style="--i:4"><span class="sn-number">2024</span><span class="sn-label">Refit</span></div>
+    <div class="sn-item reveal" style="--i:5"><span class="sn-number">16</span><span class="sn-label">Knots</span></div>
+  </div>
+</section>
+
+<!-- GALLERY PREVIEW -->
+<section class="gallery-preview">
+  <div class="gp-header reveal" style="--i:0">
+    <span class="section-eyebrow" style="display:block;text-align:center">Gallery</span>
+    <span class="eyebrow-line" style="margin:12px auto 0"></span>
+    <h2 class="gp-heading">Life Aboard NAIA</h2>
+  </div>
+  <div class="gp-strip-wrap" id="gp-strip-wrap">
+    <div class="gp-strip" id="gp-strip">
+      <div class="gp-item"><img src="gal-aerial-cruise.jpg" alt="M/Y NAIA underway" loading="lazy"></div>
+      <div class="gp-item"><img src="gal-saloon.jpg" alt="Main saloon" loading="lazy"></div>
+      <div class="gp-item"><img src="gal-anchored.jpg" alt="Anchored in the Mediterranean" loading="lazy"></div>
+      <div class="gp-item"><img src="gal-master.jpg" alt="Master cabin" loading="lazy"></div>
+      <div class="gp-item"><img src="gal-topdown.jpg" alt="Aerial deck view" loading="lazy"></div>
+      <div class="gp-item"><img src="gal-dining.jpg" alt="Dining area" loading="lazy"></div>
+      <div class="gp-item"><img src="gal-bow-lounge.jpg" alt="Bow lounge" loading="lazy"></div>
+    </div>
+  </div>
+  <div class="gp-cursor" id="gp-cursor">Drag</div>
+  <div class="gp-footer reveal" style="--i:1">
+    <a href="gallery.html" class="gp-btn">View Full Gallery</a>
+  </div>
+</section>
+
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="index.html"><img src="logo.webp" alt="M/Y NAIA" class="footer-logo"></a>
+      <p class="footer-tagline">Multi award-winning Sanlorenzo 40 Alloy.<br>Mediterranean charter at its finest.</p>
+      <p class="footer-copy">Copyright &copy; 2024</p>
+    </div>
+    <div class="footer-right">
+      <span class="footer-contact-label">Contact</span>
+      <a href="mailto:info@naiayacht.com" class="footer-email">info@naiayacht.com</a>
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/naiayacht/" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://iyc.com/charter/naia-39m/" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="IYC Charter Listing">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+/* ---- GALLERY HORIZONTAL MOUSE SCROLL ---- */
+(function(){
+  var wrap = document.getElementById('gp-strip-wrap');
+  var strip = document.getElementById('gp-strip');
+  var cursor = document.getElementById('gp-cursor');
+  if(!wrap || !strip) return;
+
+  var targetX = 0, currentX = 0, rafId = null, isHovering = false;
+
+  function getMaxScroll(){
+    return strip.scrollWidth - wrap.offsetWidth;
+  }
+
+  wrap.addEventListener('mousemove', function(e){
+    var rect = wrap.getBoundingClientRect();
+    var pct = (e.clientX - rect.left) / rect.width; // 0 to 1
+    targetX = pct * getMaxScroll();
+    // custom cursor
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+
+  wrap.addEventListener('mouseenter', function(){
+    isHovering = true;
+    cursor.classList.add('active');
+    if(!rafId) animate();
+  });
+
+  wrap.addEventListener('mouseleave', function(){
+    isHovering = false;
+    cursor.classList.remove('active');
+  });
+
+  function animate(){
+    currentX += (targetX - currentX) * 0.07;
+    strip.style.transform = 'translateX(-' + Math.max(0, Math.min(currentX, getMaxScroll())) + 'px)';
+    rafId = requestAnimationFrame(animate);
+  }
+})();
+
+document.getElementById('scroll-chevron').addEventListener('click', function () {
+  document.querySelector('.yacht-text-block').scrollIntoView({ behavior: 'smooth' });
+});
+
+/* Parallax disabled — hero image locked */
+</script>
+</body>
+</html>

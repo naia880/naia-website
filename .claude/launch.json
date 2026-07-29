@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "naia-website",
+      "runtimeExecutable": "/usr/bin/ruby",
+      "runtimeArgs": ["-run", "-e", "httpd", "/Users/akakkos/Desktop/NAIA Website", "-p", "3456"],
+      "port": 3456
+    }
+  ]
+}

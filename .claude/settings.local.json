@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xcode-select --install)",
+      "mcp__Claude_Preview__preview_start",
+      "Read(//usr/local/**)",
+      "Read(//opt/homebrew/**)",
+      "Bash(python3 -m http.server 8080)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/)",
+      "WebFetch(domain:www.naiayacht.com)",
+      "Bash(pkill -f \"python3 -m http.server\")",
+      "Read(//Users/akakkos/Desktop/**)",
+      "Bash(cp \"NAIA Photo + Video Directory/Exterior/DSC00459-HDR.jpg\" \"about-terrace.jpg\")",
+      "Bash(cp \"NAIA Photo + Video Directory/Exterior/DJI_20240629150743_0454_D-Enhanced-NR-Edit.jpg\" \"about-toys.jpg\")",
+      "Bash(cp \"NAIA Photo + Video Directory/Exterior/DJI_20240629121215_0258_D-Enhanced-NR.jpg\" \"about-hero.jpg\")"
+    ]
+  }
+}
