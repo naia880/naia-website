@@ -385,6 +385,10 @@
   }
 })();
 
+/* Slow motion hero video */
+var heroVid = document.querySelector('.hero-video');
+if(heroVid){ heroVid.playbackRate = 0.6; heroVid.addEventListener('loadeddata', function(){ heroVid.playbackRate = 0.6; }); }
+
 document.getElementById('scroll-chevron').addEventListener('click', function () {
   document.querySelector('.yacht-text-block').scrollIntoView({ behavior: 'smooth' });
 });

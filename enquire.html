@@ -52,6 +52,13 @@
 }
 .form-field input:focus,
 .form-field textarea:focus { border-bottom-color:var(--burgundy); }
+.form-field input.error,
+.form-field textarea.error { border-bottom-color:#c0392b; }
+.field-error {
+  font-family:'Montserrat',sans-serif; font-size:10px; font-weight:400;
+  color:#c0392b; margin-top:6px; display:none; letter-spacing:0.05em;
+}
+.field-error.visible { display:block; }
 .form-field textarea { resize:none; line-height:1.8; }
 .form-field input[type="date"]::-webkit-calendar-picker-indicator { opacity:.4; cursor:pointer; }
 .submit-btn {
@@ -110,38 +117,46 @@
     <h1 class="enquire-heading reveal" style="--i:2">Begin Your Journey.</h1>
     <p class="enquire-subtext reveal" style="--i:3">Contact us to check availability and receive a personalised charter proposal.</p>
 
-    <form class="enquire-form reveal" id="enquire-form" style="--i:4" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="enquire-form reveal" id="enquire-form" style="--i:4" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
       <div class="form-field">
         <label for="first-name">First Name</label>
-        <input type="text" id="first-name" name="first_name" autocomplete="given-name">
+        <input type="text" id="first-name" name="first_name" autocomplete="given-name" placeholder=" " required>
+        <span class="field-error">Please enter your first name.</span>
       </div>
       <div class="form-field">
         <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" name="last_name" autocomplete="family-name">
+        <input type="text" id="last-name" name="last_name" autocomplete="family-name" placeholder=" " required>
+        <span class="field-error">Please enter your last name.</span>
       </div>
       <div class="form-field">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" autocomplete="email">
+        <input type="email" id="email" name="email" autocomplete="email" placeholder=" " required>
+        <span class="field-error">Please enter a valid email address.</span>
       </div>
       <div class="form-field">
         <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" autocomplete="tel">
+        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder=" " required>
+        <span class="field-error">Please enter your phone number.</span>
       </div>
       <div class="form-field">
         <label for="start-date">Charter Start Date</label>
-        <input type="date" id="start-date" name="start_date">
+        <input type="date" id="start-date" name="start_date" required>
+        <span class="field-error">Please select a start date.</span>
       </div>
       <div class="form-field">
         <label for="end-date">Charter End Date</label>
-        <input type="date" id="end-date" name="end_date">
+        <input type="date" id="end-date" name="end_date" required>
+        <span class="field-error">Please select an end date.</span>
       </div>
       <div class="form-field full">
         <label for="guests">Number of Guests</label>
-        <input type="number" id="guests" name="guests" min="1" max="10">
+        <input type="number" id="guests" name="guests" min="1" max="10" placeholder=" " required>
+        <span class="field-error">Please enter the number of guests.</span>
       </div>
       <div class="form-field full">
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4"></textarea>
+        <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
+        <span class="field-error">Please enter a message.</span>
       </div>
       <div class="form-field centre">
         <button type="submit" class="submit-btn">Send Enquiry</button>
@@ -180,8 +195,37 @@
 
 <script src="nav.js"></script>
 <script>
-document.getElementById('enquire-form').addEventListener('submit', function(e){
+var form = document.getElementById('enquire-form');
+
+function validateField(input) {
+  var err = input.parentElement.querySelector('.field-error');
+  if (!input.checkValidity()) {
+    input.classList.add('error');
+    if (err) err.classList.add('visible');
+    return false;
+  } else {
+    input.classList.remove('error');
+    if (err) err.classList.remove('visible');
+    return true;
+  }
+}
+
+// Clear error as soon as field is filled
+form.querySelectorAll('input, textarea').forEach(function(el){
+  el.addEventListener('input', function(){ validateField(el); });
+});
+
+form.addEventListener('submit', function(e){
   e.preventDefault();
+
+  var fields = form.querySelectorAll('input, textarea');
+  var valid = true;
+  fields.forEach(function(el){
+    if (!validateField(el)) valid = false;
+  });
+
+  if (!valid) return;
+
   this.style.display = 'none';
   var s = document.getElementById('form-success');
   s.style.display = 'block';
