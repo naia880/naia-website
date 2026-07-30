@@ -54,13 +54,19 @@
   opacity:0; animation: hFadeUp .8s ease forwards .6s;
 }
 
+.hero-cta-wrap {
+  position:absolute;
+  bottom: 90px;
+  left:50%; transform:translateX(-50%);
+  z-index:2;
+  opacity:0; animation: hFadeUp .8s ease forwards .8s;
+}
 .hero-cta {
-  display:inline-block; margin-top:44px;
+  display:inline-block;
   border:1.5px solid var(--white); color:var(--white); background:transparent;
   font-family:'Montserrat',sans-serif; font-size:11px; font-weight:500;
   text-transform:uppercase; letter-spacing:0.2em; padding:14px 40px;
   cursor:pointer; transition:background .3s ease,color .3s ease;
-  opacity:0; animation: hFadeUp .8s ease forwards .8s;
 }
 .hero-cta:hover { background:var(--white); color:var(--dark); }
 
@@ -239,8 +245,10 @@
 <section id="home-hero">
   <div class="hero-content">
     <p class="hero-eyebrow">Mediterranean Luxury Charter</p>
-    <h1 class="hero-title">M/Y NAIA</h1>
-    <p class="hero-subtitle">A Sanlorenzo Masterpiece, Reborn in 2024.</p>
+    <img src="logo.webp" alt="M/Y NAIA" class="hero-logo-main" style="height:clamp(48px,5.5vw,88px); width:auto; display:block; margin:20px auto 0; opacity:0; animation: hFadeUp .8s ease forwards .4s;">
+    <p class="hero-subtitle" style="margin-top:20px;">A Sanlorenzo Masterpiece, Reborn in 2024.</p>
+  </div>
+  <div class="hero-cta-wrap">
     <a href="enquire.html" class="hero-cta">Enquire Now</a>
   </div>
   <div class="scroll-chevron" id="scroll-chevron">
