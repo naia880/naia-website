@@ -9,80 +9,126 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
 <style>
+
+/* ── HERO STRIP ─────────────────────────────────────────── */
+.gallery-hero {
+  background: var(--light-grey);
+  padding: clamp(50px,6vw,80px) clamp(24px,5vw,80px) clamp(32px,3vw,48px);
+  text-align: center;
+  margin-top: 72px;
+}
+
+
+/* ── GALLERY SECTION ────────────────────────────────────── */
 .gallery-section {
+  background: var(--light-grey);
+  padding: clamp(24px,3vw,40px) clamp(24px,5vw,80px) clamp(56px,7vw,96px);
+}
+.gallery-inner { max-width: 1200px; margin: 0 auto; }
+
+/* ── CATEGORY NAV ───────────────────────────────────────── */
+.gal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: clamp(40px,5vw,64px);
+}
+.gal-nav-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--mid-grey);
+  padding: 12px 32px;
+  position: relative;
+  transition: color 0.25s ease;
+}
+.gal-nav-btn::after {
+  content: '';
+  position: absolute; bottom: 0; left: 50%; right: 50%;
+  height: 1px; background: var(--burgundy);
+  transition: left 0.3s ease, right 0.3s ease;
+}
+.gal-nav-btn.active,
+.gal-nav-btn:hover { color: var(--dark); }
+.gal-nav-btn.active::after { left: 32px; right: 32px; }
+.gal-nav-sep {
+  width: 1px; height: 14px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* ── GRID ───────────────────────────────────────────────── */
+.gal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.gal-grid[data-cat="layout"] {
+  grid-template-columns: 1fr;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.gal-item {
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  background: var(--border);
+  display: none;
+}
+.gal-item.visible { display: block; }
+.gal-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.gal-item:hover img { transform: scale(1.04); }
+
+/* layout image shows full, not cropped */
+.gal-item.layout-img {
+  aspect-ratio: unset;
+}
+.gal-item.layout-img img {
+  width: 100%; height: auto;
+  object-fit: contain;
   background: var(--white);
-  padding: clamp(60px,8vw,110px) clamp(20px,5vw,80px);
-}
-.gallery-inner { max-width: 1300px; margin: 0 auto; }
-
-.gallery-page-heading {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(34px,5vw,58px); font-weight:300; color:var(--dark);
-  margin-top:16px;
 }
 
-/* Category nav anchors */
-.category-nav {
-  display:flex; gap:0; margin-top:36px;
-  border-bottom:1px solid var(--border);
-  overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;
-}
-.category-nav::-webkit-scrollbar { display:none; }
-.cat-tab {
-  font-family:'Montserrat',sans-serif; font-size:11px; font-weight:500;
-  text-transform:uppercase; letter-spacing:0.2em; color:var(--mid-grey);
-  padding:10px 22px; border-bottom:2px solid transparent; margin-bottom:-1px;
-  white-space:nowrap; cursor:pointer; background:none;
-  border-top:none; border-left:none; border-right:none;
-  transition:color .3s ease, border-color .3s ease;
-  text-decoration:none; display:inline-block;
-}
-.cat-tab:hover { color:var(--burgundy); }
-.cat-tab.active { color:var(--burgundy); border-bottom-color:var(--burgundy); }
-
-/* Category group */
-.cat-group { margin-top:56px; }
-.cat-group:first-of-type { margin-top:40px; }
-.cat-label {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(24px,3.5vw,40px); font-weight:300; color:var(--dark);
-  margin-bottom:24px;
-}
-.cat-rule { border:none; border-top:1px solid var(--border); margin-bottom:28px; }
-
-/* Masonry grid */
-.masonry { columns:3; column-gap:10px; }
-.gallery-item { break-inside:avoid; margin-bottom:10px; overflow:hidden; cursor:pointer; }
-.gallery-item img { width:100%; display:block; transition:transform .5s ease; }
-.gallery-item:hover img { transform:scale(1.04); }
-
-/* Single large layout image */
-.layout-item { break-inside:avoid; margin-bottom:10px; overflow:hidden; cursor:pointer; }
-.layout-item img { width:100%; display:block; transition:transform .5s ease; }
-.layout-item:hover img { transform:scale(1.02); }
-
-/* Lightbox */
+/* ── LIGHTBOX ───────────────────────────────────────────── */
 .lightbox {
-  position:fixed; inset:0; background:rgba(0,0,0,.95);
-  z-index:1000; display:flex; align-items:center; justify-content:center;
-  opacity:0; pointer-events:none; transition:opacity .3s ease;
+  position: fixed; inset: 0; background: rgba(0,0,0,.96);
+  z-index: 1000; display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .3s ease;
 }
-.lightbox.open { opacity:1; pointer-events:all; }
-.lightbox img { max-width:90vw; max-height:90vh; object-fit:contain; }
-.lb-close { position:absolute; top:18px; right:22px; font-size:32px; color:var(--white); background:none; border:none; cursor:pointer; width:44px; height:44px; display:flex; align-items:center; justify-content:center; font-weight:300; }
+.lightbox.open { opacity: 1; pointer-events: all; }
+.lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+.lb-close {
+  position: absolute; top: 20px; right: 24px;
+  font-size: 28px; color: var(--white); background: none; border: none;
+  cursor: pointer; width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 300;
+}
 .lb-prev, .lb-next {
-  position:absolute; top:50%; transform:translateY(-50%);
-  font-size:52px; color:var(--white); background:none; border:none;
-  cursor:pointer; font-weight:200; width:64px; height:64px;
-  display:flex; align-items:center; justify-content:center;
-  transition:opacity .2s ease; line-height:1;
+  position: absolute; top: 50%; transform: translateY(-50%);
+  font-size: 48px; color: rgba(255,255,255,0.6); background: none; border: none;
+  cursor: pointer; font-weight: 200; width: 60px; height: 60px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color .2s ease;
 }
-.lb-prev:hover,.lb-next:hover { opacity:.65; }
-.lb-prev { left:12px; }
-.lb-next { right:12px; }
+.lb-prev:hover, .lb-next:hover { color: var(--white); }
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
 
-@media(max-width:900px) { .masonry { columns:2; } }
-@media(max-width:480px) { .masonry { columns:1; } }
+@media(max-width: 768px) {
+  .gal-grid { grid-template-columns: repeat(2, 1fr); }
+  .gal-nav-btn { padding: 12px 20px; }
+}
+@media(max-width: 480px) {
+  .gal-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -118,67 +164,88 @@
   </ul>
 </div>
 
-<div class="page-hero" style="background-image:url('yacht-exterior.jpg'); padding-top:72px;">
-  <div class="page-hero-content">
-    <span class="page-hero-eyebrow">M/Y NAIA</span>
-    <h1 class="page-hero-title">Gallery</h1>
-    <p class="page-hero-subtitle">Life Aboard NAIA.</p>
-  </div>
+<!-- HERO -->
+<div class="gallery-hero">
+  <span class="section-eyebrow reveal" style="--i:0;">M/Y NAIA</span>
+  <span class="eyebrow-line reveal" style="--i:1; margin:14px auto 0;"></span>
+  <h1 class="reveal" style="--i:2; font-family:'Cormorant Garamond',serif; font-size:clamp(52px,8vw,110px); font-weight:300; color:var(--dark); line-height:1; margin-top:24px;">Gallery</h1>
+  <p class="reveal" style="--i:3; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(18px,2vw,26px); color:var(--mid-grey); margin-top:16px;">Life Aboard NAIA.</p>
 </div>
 
+<!-- GALLERY -->
 <main>
 <section class="gallery-section">
   <div class="gallery-inner">
-    <span class="section-eyebrow reveal" style="--i:0">Gallery</span>
-    <span class="eyebrow-line reveal" style="--i:1"></span>
-    <h2 class="gallery-page-heading reveal" style="--i:2">Life Aboard NAIA.</h2>
 
-    <!-- Category anchor tabs -->
-    <nav class="category-nav reveal" style="--i:3" aria-label="Gallery categories">
-      <a href="#cat-layout"   class="cat-tab active">Layout</a>
-      <a href="#cat-interior" class="cat-tab">Interior</a>
-      <a href="#cat-exterior" class="cat-tab">Exterior &amp; Aerial</a>
+    <!-- Category Nav -->
+    <nav class="gal-nav">
+      <button class="gal-nav-btn active" data-cat="interior">Interior</button>
+      <span class="gal-nav-sep"></span>
+      <button class="gal-nav-btn" data-cat="exterior">Exterior &amp; Aerial</button>
+      <span class="gal-nav-sep"></span>
+      <button class="gal-nav-btn" data-cat="layout">Layout</button>
     </nav>
 
-    <!-- LAYOUT -->
-    <div class="cat-group" id="cat-layout">
-      <h3 class="cat-label reveal" style="--i:0">Layout</h3>
-      <hr class="cat-rule">
-      <div class="layout-item reveal" style="--i:1" data-lb-group="layout">
-        <img src="yacht-layout.png" alt="Yacht deck plan" loading="lazy" onerror="this.closest('.layout-item').style.display='none'">
-      </div>
-    </div>
+    <!-- Grid -->
+    <div class="gal-grid" id="gal-grid">
 
-    <!-- INTERIOR -->
-    <div class="cat-group" id="cat-interior">
-      <h3 class="cat-label reveal" style="--i:0">Interior</h3>
-      <hr class="cat-rule">
-      <div class="masonry">
-        <div class="gallery-item reveal" style="--i:1" data-lb-group="interior"><img src="design-heritage.jpg"  alt="Interior" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:2" data-lb-group="interior"><img src="culinary.jpg"         alt="Dining" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:3" data-lb-group="interior"><img src="deck-dining.jpg"      alt="Deck dining" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:4" data-lb-group="interior"><img src="interior-1.jpg"       alt="Interior" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:5" data-lb-group="interior"><img src="interior-2.jpg"       alt="Interior" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:0" data-lb-group="interior"><img src="interior-3.jpg"       alt="Interior" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:1" data-lb-group="interior"><img src="interior-4.jpg"       alt="Interior" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:2" data-lb-group="interior"><img src="interior-5.jpg"       alt="Interior" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
+      <!-- Interior -->
+      <div class="gal-item visible" data-cat="interior" data-src="design-heritage.jpg">
+        <img src="design-heritage.jpg" alt="Interior" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
       </div>
-    </div>
+      <div class="gal-item visible" data-cat="interior" data-src="culinary.jpg">
+        <img src="culinary.jpg" alt="Dining" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item visible" data-cat="interior" data-src="deck-dining.jpg">
+        <img src="deck-dining.jpg" alt="Deck Dining" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item visible" data-cat="interior" data-src="interior-1.jpg">
+        <img src="interior-1.jpg" alt="Interior" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item visible" data-cat="interior" data-src="interior-2.jpg">
+        <img src="interior-2.jpg" alt="Interior" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item visible" data-cat="interior" data-src="interior-3.jpg">
+        <img src="interior-3.jpg" alt="Interior" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item visible" data-cat="interior" data-src="interior-4.jpg">
+        <img src="interior-4.jpg" alt="Interior" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item visible" data-cat="interior" data-src="interior-5.jpg">
+        <img src="interior-5.jpg" alt="Interior" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
 
-    <!-- EXTERIOR & AERIAL -->
-    <div class="cat-group" id="cat-exterior">
-      <h3 class="cat-label reveal" style="--i:0">Exterior &amp; Aerial</h3>
-      <hr class="cat-rule">
-      <div class="masonry">
-        <div class="gallery-item reveal" style="--i:1" data-lb-group="exterior"><img src="hero.jpg"           alt="M/Y NAIA" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:2" data-lb-group="exterior"><img src="yacht-exterior.jpg" alt="Exterior" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:3" data-lb-group="exterior"><img src="chaser-1.jpg"       alt="The Chaser" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:4" data-lb-group="exterior"><img src="chaser-2.jpg"       alt="Chaser" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:5" data-lb-group="exterior"><img src="aerial-1.jpg"       alt="Aerial" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:0" data-lb-group="exterior"><img src="aerial-2.jpg"       alt="Aerial" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:1" data-lb-group="exterior"><img src="aerial-3.jpg"       alt="Aerial" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
-        <div class="gallery-item reveal" style="--i:2" data-lb-group="exterior"><img src="exterior-1.jpg"     alt="Exterior" loading="lazy" onerror="this.closest('.gallery-item').style.display='none'"></div>
+      <!-- Exterior & Aerial -->
+      <div class="gal-item" data-cat="exterior" data-src="hero.jpg">
+        <img src="hero.jpg" alt="M/Y NAIA" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
       </div>
+      <div class="gal-item" data-cat="exterior" data-src="yacht-exterior.jpg">
+        <img src="yacht-exterior.jpg" alt="Exterior" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item" data-cat="exterior" data-src="exterior-1.jpg">
+        <img src="exterior-1.jpg" alt="Exterior" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item" data-cat="exterior" data-src="chaser-1.jpg">
+        <img src="chaser-1.jpg" alt="Chaser" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item" data-cat="exterior" data-src="chaser-2.jpg">
+        <img src="chaser-2.jpg" alt="Chaser" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item" data-cat="exterior" data-src="aerial-1.jpg">
+        <img src="aerial-1.jpg" alt="Aerial" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item" data-cat="exterior" data-src="aerial-2.jpg">
+        <img src="aerial-2.jpg" alt="Aerial" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+      <div class="gal-item" data-cat="exterior" data-src="aerial-3.jpg">
+        <img src="aerial-3.jpg" alt="Aerial" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+
+      <!-- Layout -->
+      <div class="gal-item layout-img" data-cat="layout" data-src="yacht-layout.png">
+        <img src="yacht-layout.png" alt="Yacht Layout" loading="lazy" onerror="this.closest('.gal-item').style.display='none'">
+      </div>
+
     </div>
   </div>
 </section>
@@ -217,56 +284,86 @@
 <script src="nav.js"></script>
 <script>
 (function(){
-  /* Active tab on scroll / click */
-  var tabs = document.querySelectorAll('.cat-tab');
-  tabs.forEach(function(tab){
-    tab.addEventListener('click', function(){
-      tabs.forEach(function(t){ t.classList.remove('active'); });
-      tab.classList.add('active');
+
+  // ── Category filter ────────────────────────────────────
+  var navBtns = document.querySelectorAll('.gal-nav-btn');
+  var grid    = document.getElementById('gal-grid');
+  var items   = document.querySelectorAll('.gal-item');
+
+  navBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      navBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cat = btn.dataset.cat;
+
+      // switch grid column layout for layout tab
+      if(cat === 'layout'){
+        grid.dataset.cat = 'layout';
+      } else {
+        delete grid.dataset.cat;
+      }
+
+      items.forEach(function(item){
+        if(item.dataset.cat === cat){
+          item.classList.add('visible');
+          item.style.display = '';
+        } else {
+          item.classList.remove('visible');
+          item.style.display = 'none';
+        }
+      });
+
+      buildList();
     });
   });
 
-  /* Lightbox */
-  var lb       = document.getElementById('lightbox');
-  var lbImg    = document.getElementById('lb-img');
-  var lbClose  = document.getElementById('lb-close');
-  var lbPrev   = document.getElementById('lb-prev');
-  var lbNext   = document.getElementById('lb-next');
-  var allItems = [];
-  var curIdx   = 0;
+  // ── Lightbox ───────────────────────────────────────────
+  var lb      = document.getElementById('lightbox');
+  var lbImg   = document.getElementById('lb-img');
+  var lbClose = document.getElementById('lb-close');
+  var lbPrev  = document.getElementById('lb-prev');
+  var lbNext  = document.getElementById('lb-next');
+  var visibleItems = [];
+  var cur = 0;
 
   function buildList(){
-    allItems = Array.from(document.querySelectorAll('.gallery-item, .layout-item')).filter(function(el){
+    visibleItems = Array.from(document.querySelectorAll('.gal-item.visible')).filter(function(el){
       return el.style.display !== 'none';
     });
   }
 
-  function openLb(idx){
+  function open(idx){
     buildList();
-    curIdx = idx;
-    lbImg.src = allItems[curIdx].querySelector('img').src;
+    cur = idx;
+    lbImg.src = visibleItems[cur].dataset.src;
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-  function closeLb(){
+  function close(){
     lb.classList.remove('open');
     document.body.style.overflow = '';
     lbImg.src = '';
   }
-  function prev(){ curIdx = (curIdx - 1 + allItems.length) % allItems.length; lbImg.src = allItems[curIdx].querySelector('img').src; }
-  function next(){ curIdx = (curIdx + 1) % allItems.length; lbImg.src = allItems[curIdx].querySelector('img').src; }
+  function prev(){ cur = (cur - 1 + visibleItems.length) % visibleItems.length; lbImg.src = visibleItems[cur].dataset.src; }
+  function next(){ cur = (cur + 1) % visibleItems.length; lbImg.src = visibleItems[cur].dataset.src; }
 
-  document.querySelectorAll('.gallery-item, .layout-item').forEach(function(item, i){
-    item.addEventListener('click', function(){ buildList(); var idx = allItems.indexOf(item); if(idx >= 0) openLb(idx); });
+  buildList();
+
+  document.addEventListener('click', function(e){
+    var item = e.target.closest('.gal-item');
+    if(item && item.classList.contains('visible')){
+      buildList();
+      open(visibleItems.indexOf(item));
+    }
   });
 
-  lbClose.addEventListener('click', closeLb);
+  lbClose.addEventListener('click', close);
   lbPrev.addEventListener('click', prev);
   lbNext.addEventListener('click', next);
-  lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
   document.addEventListener('keydown', function(e){
     if(!lb.classList.contains('open')) return;
-    if(e.key==='Escape') closeLb();
+    if(e.key==='Escape') close();
     if(e.key==='ArrowLeft') prev();
     if(e.key==='ArrowRight') next();
   });
