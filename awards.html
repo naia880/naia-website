@@ -11,7 +11,7 @@
 <style>
 .awards-section {
   background: var(--white);
-  padding: clamp(70px,9vw,120px) clamp(20px,5vw,80px);
+  padding: clamp(36px,4vw,56px) clamp(20px,5vw,80px);
 }
 .awards-inner { max-width: 900px; margin: 0 auto; }
 
@@ -27,12 +27,13 @@
   margin-top:0; margin-bottom:52px;
 }
 
-.award-entry { border-bottom:3px solid var(--border); padding:52px 0; }
+.award-entry { border-bottom:1px solid rgba(107,30,46,0.18); padding:48px 0; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; }
 .award-entry:first-of-type { padding-top:8px; }
+.award-entry-left { flex:1; }
 
 .award-number {
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(60px,8vw,100px); font-weight:300; color:var(--border); line-height:1;
+  font-size:clamp(60px,8vw,100px); font-weight:300; color:rgba(107,30,46,0.18); line-height:1;
 }
 .award-status {
   font-family:'Montserrat',sans-serif; font-size:11px; font-weight:500;
@@ -44,22 +45,22 @@
   font-size:clamp(26px,4vw,48px); font-weight:300; color:var(--dark);
   margin-top:8px; line-height:1.15;
 }
-.award-divider { border:none; border-top:1px solid var(--border); margin:20px 0; }
+.award-divider { border:none; border-top:1px solid var(--border); margin:16px 0 14px; }
+
 .award-description {
-  font-family:'Montserrat',sans-serif; font-size:13px; font-weight:300;
-  color:var(--mid-grey); line-height:1.8;
+  font-family:'Montserrat',sans-serif; font-size:clamp(13px,1.2vw,15px); font-weight:300;
+  color:var(--mid-grey); line-height:1.85; margin-top:14px; max-width:620px;
 }
-.award-footer {
-  display:flex; align-items:center; justify-content:space-between;
-  margin-top:22px; gap:20px; flex-wrap:wrap;
+.award-logo-wrap { width:140px; height:100px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+.award-logo { width:140px; height:100px; object-fit:contain; object-position:center; display:block; opacity:1; }
+.award-logo-wrap.lg { width:165px; height:118px; }
+.award-logo-wrap.lg .award-logo { width:165px; height:118px; }
+
+@media(max-width:600px) {
+  .award-body-row { grid-template-columns:1fr; }
+  .award-meta { text-align:left; }
+  .award-logo { margin-left:0; }
 }
-.award-category-label {
-  font-family:'Montserrat',sans-serif; font-size:9px; font-weight:500;
-  text-transform:uppercase; letter-spacing:.15em; color:var(--mid-grey);
-  display:block; margin-bottom:4px;
-}
-.award-category-value { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:18px; color:var(--dark); }
-.award-logo { height:48px; width:auto; object-fit:contain; }
 
 @media(max-width:600px) {
   .award-footer { flex-direction:column; align-items:flex-start; }
@@ -99,69 +100,59 @@
   </ul>
 </div>
 
-<div class="page-hero" style="background-image:url('yacht-exterior.jpg'); padding-top:72px;">
-  <div class="page-hero-content">
-    <span class="page-hero-eyebrow">Recognition · 2009</span>
-    <h1 class="page-hero-title">Awards</h1>
-    <p class="page-hero-subtitle">A design recognised by the world.</p>
-  </div>
+<div style="height:72px;"></div>
+
+<!-- AWARDS HERO STRIP -->
+<div style="background:var(--dark); padding:clamp(50px,6vw,80px) clamp(24px,5vw,80px); text-align:center;">
+  <span class="section-eyebrow reveal" style="--i:0; color:rgba(255,255,255,0.45);">Recognition</span>
+  <span class="eyebrow-line reveal" style="--i:1; margin:14px auto 0;"></span>
+  <h1 class="reveal" style="--i:2; font-family:'Cormorant Garamond',serif; font-size:clamp(52px,8vw,110px); font-weight:300; color:var(--white); line-height:1; margin-top:24px;">Awards</h1>
+  <p class="reveal" style="--i:3; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(18px,2vw,26px); color:rgba(255,255,255,0.65); margin-top:18px;">A design recognised by the world.</p>
+  <p class="reveal" style="--i:4; font-family:'Montserrat',sans-serif; font-size:clamp(12px,1.2vw,14px); font-weight:300; color:rgba(255,255,255,0.45); line-height:1.9; margin-top:28px; max-width:640px; margin-left:auto; margin-right:auto;">NAIA has garnered recognition in the yachting world, having been awarded two prestigious awards in 2009. This is a result of her exceptional design by renowned Francesco Paszkowski, whose work is known for blending performance with style, making NAIA an exemplary model of his design philosophy.</p>
 </div>
 
 <main>
 <section class="awards-section">
   <div class="awards-inner">
-    <span class="section-eyebrow reveal" style="--i:0">Recognition</span>
-    <span class="eyebrow-line reveal" style="--i:1"></span>
-    <h2 class="awards-top-heading reveal" style="--i:2">A design <em>recognised</em> by the world.</h2>
-    <hr class="section-rule reveal" style="--i:3">
-    <p class="awards-intro reveal" style="--i:4">NAIA has garnered recognition in the yachting world, having been awarded two prestigious awards in 2009. This is a result of her exceptional design by renowned Francesco Paszkowski, whose work is known for blending performance with style, making NAIA an exemplary model of his design philosophy.</p>
 
     <article class="award-entry reveal" style="--i:0">
-      <div class="award-number">01</div>
-      <span class="award-status">2009 · Winner</span>
-      <h3 class="award-name">Best Exterior Styling</h3>
-      <hr class="award-divider">
-      <p class="award-description">Awarded across all classes of motor yachts. The jury recognised NAIA's sculptural confidence — a profile of restraint, proportion, and quiet authority that has aged without compromise.</p>
-      <div class="award-footer">
-        <div><span class="award-category-label">Category</span><span class="award-category-value">Motor Yachts · All Classes</span></div>
-        <div><span class="award-category-label">Presented By</span><img src="awards-logo-1.png" alt="Award logo" class="award-logo" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="award-entry-left">
+        <div class="award-number">01</div>
+        <span class="award-status">2009 · Winner</span>
+        <h3 class="award-name">Best Exterior Styling</h3>
+        <p class="award-description">Awarded across all classes of motor yachts. The jury recognised NAIA's sculptural confidence — a profile of restraint, proportion, and quiet authority that has aged without compromise.</p>
       </div>
+      <div class="award-logo-wrap"><img src="awards-logo-1.png" alt="Boat World Superyacht Awards" class="award-logo" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
     </article>
 
     <article class="award-entry reveal" style="--i:1">
-      <div class="award-number">02</div>
-      <span class="award-status">2009 · Winner</span>
-      <h3 class="award-name">Best Semi Displacement</h3>
-      <hr class="award-divider">
-      <p class="award-description">Awarded in the 30–39 metre class. Performance and poise are inseparable — a hull that crosses oceans with the same composure it holds in harbour.</p>
-      <div class="award-footer">
-        <div><span class="award-category-label">Category</span><span class="award-category-value">Motor Yachts · All Classes</span></div>
-        <div><span class="award-category-label">Presented By</span><img src="awards-logo-1.png" alt="Award logo" class="award-logo" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="award-entry-left">
+        <div class="award-number">02</div>
+        <span class="award-status">2009 · Winner</span>
+        <h3 class="award-name">Best Semi Displacement</h3>
+        <p class="award-description">Awarded in the 30–39 metre class. Performance and poise are inseparable — a hull that crosses oceans with the same composure it holds in harbour.</p>
       </div>
+      <div class="award-logo-wrap"><img src="awards-logo-1.png" alt="Boat World Superyacht Awards" class="award-logo" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
     </article>
 
     <article class="award-entry reveal" style="--i:2">
-      <div class="award-number">03</div>
-      <span class="award-status">2025 · Nominee</span>
-      <h3 class="award-name">Refitted Yachts · 499GT and below</h3>
-      <hr class="award-divider">
-      <p class="award-description">Nominated in the Refitted Yachts 499GT and below class. Renewal and refinement — a yacht reborn to deliver modern performance while preserving the composure of her original design.</p>
-      <div class="award-footer">
-        <div><span class="award-category-label">Category</span><span class="award-category-value">Refitted Yachts · 499GT and below</span></div>
-        <div><span class="award-category-label">Presented By</span><img src="awards-logo-2.png" alt="Award logo" class="award-logo" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="award-entry-left">
+        <div class="award-number">03</div>
+        <span class="award-status">2025 · Nominee</span>
+        <h3 class="award-name">Refitted Yachts · 499GT and Below</h3>
+        <p class="award-description">Nominated in the Refitted Yachts 499GT and below class. Renewal and refinement — a yacht reborn to deliver modern performance while preserving the composure of her original design.</p>
       </div>
+      <div class="award-logo-wrap lg"><img src="awards-logo-2.png" alt="Award logo" class="award-logo" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
     </article>
 
     <article class="award-entry reveal" style="--i:3">
-      <div class="award-number">04</div>
-      <span class="award-status">2026 · Nominee</span>
-      <h3 class="award-name">Refit Award</h3>
-      <hr class="award-divider">
-      <p class="award-description">Recognised in the Refit category. NAIA's recent refit, delivered by Seara Maritime, introduces a thoughtful upgrade to both form and function — bringing renewed comfort and technical precision throughout.</p>
-      <div class="award-footer">
-        <div><span class="award-category-label">Category</span><span class="award-category-value">Refit · All Classes</span></div>
-        <div><span class="award-category-label">Presented By</span><img src="awards-logo-3.png" alt="Award logo" class="award-logo" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="award-entry-left">
+        <div class="award-number">04</div>
+        <span class="award-status">2026 · Nominee</span>
+        <h3 class="award-name">Refit Award</h3>
+        <p class="award-description">Recognised in the Refit category. NAIA's recent refit, delivered by Seara Maritime, introduces a thoughtful upgrade to both form and function — bringing renewed comfort and technical precision throughout.</p>
       </div>
+      <div class="award-logo-wrap lg"><img src="awards-logo-3.png" alt="Award logo" class="award-logo" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
     </article>
   </div>
 </section>

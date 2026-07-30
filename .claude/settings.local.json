@@ -18,7 +18,8 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(sips -Z 3000 -s format jpeg -s formatOptions 92 \"/Users/akakkos/Desktop/NAIA Website/HOME imgae.JPEG\" --out \"/Users/akakkos/Desktop/NAIA Website/home-hero-final.jpg\")",
-      "Bash(sips -Z 3000 -s format jpeg -s formatOptions 92 \"/Users/akakkos/Desktop/DJI_20240629121413_0271_D-Enhanced-NR.JPEG\" --out \"/Users/akakkos/Desktop/NAIA Website/home-hero-final.jpg\")"
+      "Bash(sips -Z 3000 -s format jpeg -s formatOptions 92 \"/Users/akakkos/Desktop/DJI_20240629121413_0271_D-Enhanced-NR.JPEG\" --out \"/Users/akakkos/Desktop/NAIA Website/home-hero-final.jpg\")",
+      "Bash(lsof -ti:8080)"
     ]
   }
 }

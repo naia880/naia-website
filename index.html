@@ -15,7 +15,7 @@
   position: relative;
   height: 100vh;
   min-height: 600px;
-  background: url('home-hero-final.jpg') center 60% / cover no-repeat;
+  background: url('home-hero-final.jpg') center 30% / cover no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,8 +56,10 @@
 
 .hero-cta-wrap {
   position:absolute;
-  bottom: 90px;
-  left:50%; transform:translateX(-50%);
+  bottom: 70px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
   z-index:2;
   opacity:0; animation: hFadeUp .8s ease forwards .8s;
 }
