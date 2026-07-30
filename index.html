@@ -21,6 +21,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  overflow: hidden;
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
 #home-hero::after {
   content: '';
@@ -29,7 +38,8 @@
   pointer-events: none;
 }
 
-.hero-content { position: relative; z-index: 2; padding: 0 clamp(20px,5vw,60px); width: 100%; }
+.hero-content { position: relative; z-index: 2; padding: 0 clamp(20px,5vw,60px); width: 100%; transform: translateY(-20vh); }
+#home-hero::after { z-index: 1; }
 
 @keyframes hFadeUp {
   from { opacity:0; transform:translateY(20px); }
@@ -245,6 +255,9 @@
 
 <!-- HERO -->
 <section id="home-hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="home-hero-final.jpg">
+    <source src="clips00002957.mov" type="video/mp4">
+  </video>
   <div class="hero-content">
     <p class="hero-eyebrow">Mediterranean Luxury Charter</p>
     <img src="logo.webp" alt="M/Y NAIA" class="hero-logo-main" style="height:clamp(48px,5.5vw,88px); width:auto; display:block; margin:20px auto 0; opacity:0; animation: hFadeUp .8s ease forwards .4s;">
