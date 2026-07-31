@@ -226,13 +226,33 @@ form.addEventListener('submit', function(e){
 
   if (!valid) return;
 
-  this.style.display = 'none';
-  var s = document.getElementById('form-success');
-  s.style.display = 'block';
-  s.style.opacity = '0';
-  requestAnimationFrame(function(){
-    s.style.transition = 'opacity .6s ease';
-    s.style.opacity = '1';
+  var btn = form.querySelector('.submit-btn');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(function(response){
+    if (response.ok) {
+      form.style.display = 'none';
+      var s = document.getElementById('form-success');
+      s.style.display = 'block';
+      s.style.opacity = '0';
+      requestAnimationFrame(function(){
+        s.style.transition = 'opacity .6s ease';
+        s.style.opacity = '1';
+      });
+    } else {
+      btn.textContent = 'Send Enquiry';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or email us directly.');
+    }
+  }).catch(function(){
+    btn.textContent = 'Send Enquiry';
+    btn.disabled = false;
+    alert('Something went wrong. Please try again or email us directly.');
   });
 });
 </script>
