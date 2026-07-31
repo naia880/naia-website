@@ -79,10 +79,29 @@
 
 .chaser-img2 { width:100%; max-height:500px; object-fit:cover; display:block; margin-top:56px; }
 
+.chaser-main-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.chaser-specs-aside {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  border-top: 1px solid var(--border);
+  align-content: start;
+  max-width: 480px;
+  margin-left: auto;
+}
 @media(max-width:768px) {
   .specs-grid6 { grid-template-columns:repeat(2,1fr); }
   .sg-cell:nth-child(3n) { border-right:1px solid var(--border); }
   .sg-cell:nth-child(2n) { border-right:none; }
+  .chaser-main-grid { grid-template-columns: 1fr; gap: 40px; }
+  .chaser-specs-body { text-align: left; }
+  .chaser-specs-aside { max-width: 100%; margin-left: 0; }
 }
 </style>
 </head>
@@ -129,8 +148,8 @@
 </section>
 
 <!-- TEXT LEFT / SPECS RIGHT -->
-<section style="background:var(--white); padding:clamp(70px,9vw,120px) clamp(40px,5vw,100px);">
-  <div style="max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
+<section style="background:var(--white); padding:clamp(60px,9vw,120px) clamp(24px,5vw,100px);">
+  <div class="chaser-main-grid">
     <div>
       <span class="section-eyebrow reveal" style="--i:0">The Chaser</span>
       <span class="eyebrow-line reveal" style="--i:1"></span>
@@ -138,7 +157,7 @@
       <p class="chaser-specs-body reveal" style="--i:3; margin-top:24px;">The Axopar 37 XC Cross Cabin enhances your charter experience with NAIA by offering unparalleled exploration capabilities. The addition of this high-speed chase boat enables guests to discover secluded bays and hidden gems, offering a smooth, comfortable ride with stabilisers at anchor and underway.</p>
       <p class="chaser-specs-body reveal" style="--i:4; margin-top:18px;">Its design integrates open and enclosed boating, featuring a fully enclosed, weatherproof cabin with a distinctive look that challenges traditional cabin boats. Key features such as the innovative Gullwing Door concept, a spacious foredeck, and a versatile aft deck, complemented by significant gains in fuel economy and performance, ensure a comfortable and efficient journey.</p>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(2,1fr); border-top:1px solid var(--border); align-content:start; max-width:480px; margin-left:auto;">
+    <div class="chaser-specs-aside">
       <div style="padding:28px 24px 28px 0; border-bottom:1px solid var(--border);"><span class="sg-label">Length</span><span class="sg-value" style="font-size:clamp(20px,2vw,28px);">11.50m</span></div>
       <div style="padding:28px 24px 28px 0; border-bottom:1px solid var(--border);"><span class="sg-label">Year</span><span class="sg-value" style="font-size:clamp(20px,2vw,28px);">2024</span></div>
       <div style="padding:28px 24px 28px 0; border-bottom:1px solid var(--border);"><span class="sg-label">Top Speed</span><span class="sg-value" style="font-size:clamp(20px,2vw,28px);">48kn</span></div>
