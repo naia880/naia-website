@@ -19,7 +19,23 @@
       "Bash(git commit *)",
       "Bash(sips -Z 3000 -s format jpeg -s formatOptions 92 \"/Users/akakkos/Desktop/NAIA Website/HOME imgae.JPEG\" --out \"/Users/akakkos/Desktop/NAIA Website/home-hero-final.jpg\")",
       "Bash(sips -Z 3000 -s format jpeg -s formatOptions 92 \"/Users/akakkos/Desktop/DJI_20240629121413_0271_D-Enhanced-NR.JPEG\" --out \"/Users/akakkos/Desktop/NAIA Website/home-hero-final.jpg\")",
-      "Bash(lsof -ti:8080)"
+      "Bash(lsof -ti:8080)",
+      "Bash(ffprobe -v quiet -print_format json -show_format -show_streams \"/Users/akakkos/Desktop/naia tik tok 2 copy.mov\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); f=d['format']; s=[s for s in d['streams'] if s['codec_type']=='video'][0]; print\\(f'Duration: {float\\(f[\\\\\"duration\\\\\"]\\):.1f}s'\\); print\\(f'Size: {int\\(f[\\\\\"size\\\\\"]\\)//1024//1024}MB'\\); print\\(f'Resolution: {s[\\\\\"width\\\\\"]}x{s[\\\\\"height\\\\\"]}'\\); print\\(f'FPS: {s[\\\\\"r_frame_rate\\\\\"]}'\\)\")",
+      "Bash(python3 -m http.server 8888)",
+      "Bash(python3 -m http.server 9000)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:9000/)",
+      "Bash(cp \"/Users/akakkos/Desktop/DJI_20260510055841_00..._D \\(1\\).jpg\" \"/Users/akakkos/Desktop/NAIA Website/ext-11.jpg\")",
+      "Bash(cp \"/Users/akakkos/Desktop/DJI_20260510055841_00\"*\".jpg\" \"/Users/akakkos/Desktop/NAIA Website/ext-11.jpg\")",
+      "Bash(cp \"/Users/akakkos/Desktop/_DSC7903 \\(2\\).jpg\" \"/Users/akakkos/Desktop/NAIA Website/ext-12.jpg\")",
+      "Bash(cp \"/Users/akakkos/Desktop/DJI_20260510060919_011\"*\".jpg\" \"/Users/akakkos/Desktop/NAIA Website/ext-13.jpg\")",
+      "Bash(cp \"/Users/akakkos/Desktop/DJI_20260509144001_007\"*\".jpg\" \"/Users/akakkos/Desktop/NAIA Website/ext-14.jpg\")",
+      "Bash(cp \"/Users/akakkos/Desktop/DJI_20260510055718_008\"*\".jpg\" \"/Users/akakkos/Desktop/NAIA Website/ext-15.jpg\" && echo \"Done\")",
+      "Bash(cp \"DSC00495-HDR \\(1\\).jpg\" \"NAIA Website/int-1.jpg\")",
+      "Bash(cp \"DSC00597-HDR \\(1\\).jpg\" \"NAIA Website/int-2.jpg\")",
+      "Bash(cp \"DSC00639-HDR \\(2\\).jpg\" \"NAIA Website/int-3.jpg\")",
+      "Bash(cp \"DSC00651-HDR \\(1\\).jpg\" \"NAIA Website/int-4.jpg\")",
+      "Bash(cp \"DSC00858-HDR \\(1\\).jpg\" \"NAIA Website/int-5.jpg\")"
     ]
   }
 }
